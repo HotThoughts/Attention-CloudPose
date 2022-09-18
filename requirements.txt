@@ -1,0 +1,5 @@
+trimesh
+tfrecord>=1.14.1
+plyfile
+pytorch-lightning>=1.6.4
+git+https://github.com/facebookresearch/pytorch3d.git

@@ -1,0 +1,65 @@
+data:
+  # The dir name where data stores
+  dataset: fps1024
+  tfrecord_dir: /home/jovyan/datastores/fps1024
+  num_point: 1024
+  num_class: 21
+  channel: 3
+  split: [0.8, 0.1, 0.1]
+  train_dir: train
+  val_dir: val
+  test_dir: test
+  # For perfect shuffling, a buffer size greater than or equal to the full size of the dataset is required. This will need > 18GB memory
+  shuffle: 1000000
+  total_num_items: 879749
+
+dataloader:
+  batch_size: 70
+  num_workers: 4
+
+train:
+  # Logger configuration
+  wandb:
+    project: attention-cloudpose
+    log_model: all
+    save_dir: ./checkpoint
+  # True means run CloudPose
+  # False means run AttentionCloudPose
+  baseline: False
+  tune_model: False
+  fast_mode: False
+  # Enable pre-trained mdoel for Point Cloud Transformer
+  # transfer_learning: True
+  precision: 16 # 16-, 32-, 64-bit percision
+  epochs: 70
+  max_epochs: 75
+  # Initial learning rate
+  lr: 0.001
+  # Which epochs to decay the learning rate
+  lr_decay_steps: [80, 120, 160]
+  lr_decay_rate: [0.1, 0.1, 0.1]
+  # Optimization L2 weight decay
+  weight_decay: 0
+  # Preiod of BN decay in epochs
+  bn_decay_step: 40
+  # Decay rate for BN decay
+  bn_decay_rate: 0.5
+  # Adam or gd
+  optimizer: adam
+  # Dropout rate
+  dropout: 0.5
+  # Model checkpoint path
+  # checkpoint_path: checkpoint/attention-cloudpose/1ceu8qxf/checkpoints/epoch=1-step=84232.ckpt
+  checkpoint_path: checkpoint/attention-cloudpose/3t1ldn0l/checkpoints/epoch=39-step=463398.ckpt
+  resume_checkpoint: False
+
+# Set to `True` to run test
+test: False
+
+accuracy:
+  threshold: 0.1
+  threshold_small: 0.01
+
+process:
+  thresh: 0.98
+  bow: 15000

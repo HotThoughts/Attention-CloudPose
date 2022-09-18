@@ -1,0 +1,180 @@
+CloudPose(
+  5.87 M, 102.285% Params, 4.35 GMac, 100.000% MACs,
+  (trans): PointCloudTransformer(
+    2.93 M, 51.143% Params, 2.17 GMac, 50.000% MACs,
+    (conv1): Conv1d(1.54 k, 0.027% Params, 1.57 MMac, 0.036% MACs, 24, 64, kernel_size=(1,), stride=(1,), bias=False)
+    (conv2): Conv1d(4.1 k, 0.071% Params, 4.19 MMac, 0.096% MACs, 64, 64, kernel_size=(1,), stride=(1,), bias=False)
+    (bn1): BatchNorm1d(128, 0.002% Params, 131.07 KMac, 0.003% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bn2): BatchNorm1d(128, 0.002% Params, 131.07 KMac, 0.003% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (gather_local_0): Local_op(
+      33.28 k, 0.580% Params, 545.26 MMac, 12.544% MACs,
+      (conv1): Conv1d(16.38 k, 0.286% Params, 268.44 MMac, 6.175% MACs, 128, 128, kernel_size=(1,), stride=(1,), bias=False)
+      (conv2): Conv1d(16.38 k, 0.286% Params, 268.44 MMac, 6.175% MACs, 128, 128, kernel_size=(1,), stride=(1,), bias=False)
+      (bn1): BatchNorm1d(256, 0.004% Params, 4.19 MMac, 0.096% MACs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn2): BatchNorm1d(256, 0.004% Params, 4.19 MMac, 0.096% MACs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (gather_local_1): Local_op(
+      132.1 k, 2.303% Params, 1.08 GMac, 24.894% MACs,
+      (conv1): Conv1d(65.54 k, 1.143% Params, 536.87 MMac, 12.351% MACs, 256, 256, kernel_size=(1,), stride=(1,), bias=False)
+      (conv2): Conv1d(65.54 k, 1.143% Params, 536.87 MMac, 12.351% MACs, 256, 256, kernel_size=(1,), stride=(1,), bias=False)
+      (bn1): BatchNorm1d(512, 0.009% Params, 4.19 MMac, 0.096% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn2): BatchNorm1d(512, 0.009% Params, 4.19 MMac, 0.096% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (pt_last): StackedAttention(
+      791.55 k, 13.800% Params, 203.03 MMac, 4.671% MACs,
+      (conv1): Conv1d(65.54 k, 1.143% Params, 16.78 MMac, 0.386% MACs, 256, 256, kernel_size=(1,), stride=(1,), bias=False)
+      (conv2): Conv1d(65.54 k, 1.143% Params, 16.78 MMac, 0.386% MACs, 256, 256, kernel_size=(1,), stride=(1,), bias=False)
+      (bn1): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn2): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (sa1): SA_Layer(
+        164.86 k, 2.874% Params, 42.27 MMac, 0.972% MACs,
+        (q_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (k_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (v_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (trans_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (after_norm): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act): ReLU(0, 0.000% Params, 65.54 KMac, 0.002% MACs, )
+        (softmax): Softmax(0, 0.000% Params, 0.0 Mac, 0.000% MACs, dim=-1)
+      )
+      (sa2): SA_Layer(
+        164.86 k, 2.874% Params, 42.27 MMac, 0.972% MACs,
+        (q_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (k_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (v_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (trans_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (after_norm): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act): ReLU(0, 0.000% Params, 65.54 KMac, 0.002% MACs, )
+        (softmax): Softmax(0, 0.000% Params, 0.0 Mac, 0.000% MACs, dim=-1)
+      )
+      (sa3): SA_Layer(
+        164.86 k, 2.874% Params, 42.27 MMac, 0.972% MACs,
+        (q_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (k_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (v_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (trans_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (after_norm): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act): ReLU(0, 0.000% Params, 65.54 KMac, 0.002% MACs, )
+        (softmax): Softmax(0, 0.000% Params, 0.0 Mac, 0.000% MACs, dim=-1)
+      )
+      (sa4): SA_Layer(
+        164.86 k, 2.874% Params, 42.27 MMac, 0.972% MACs,
+        (q_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (k_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (v_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (trans_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (after_norm): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act): ReLU(0, 0.000% Params, 65.54 KMac, 0.002% MACs, )
+        (softmax): Softmax(0, 0.000% Params, 0.0 Mac, 0.000% MACs, dim=-1)
+      )
+      (relu): ReLU(0, 0.000% Params, 131.07 KMac, 0.003% MACs, )
+    )
+    (conv_fuse): Sequential(
+      1.31 M, 22.887% Params, 336.33 MMac, 7.737% MACs,
+      (0): Conv1d(1.31 M, 22.851% Params, 335.54 MMac, 7.719% MACs, 1280, 1024, kernel_size=(1,), stride=(1,), bias=False)
+      (1): BatchNorm1d(2.05 k, 0.036% Params, 524.29 KMac, 0.012% MACs, 1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): LeakyReLU(0, 0.000% Params, 262.14 KMac, 0.006% MACs, negative_slope=0.2)
+    )
+    (linear1): Linear(524.29 k, 9.140% Params, 524.29 KMac, 0.012% MACs, in_features=1024, out_features=512, bias=False)
+    (bn6): BatchNorm1d(1.02 k, 0.018% Params, 1.02 KMac, 0.000% MACs, 512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dp1): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.5, inplace=False)
+    (linear2): Linear(131.33 k, 2.290% Params, 131.33 KMac, 0.003% MACs, in_features=512, out_features=256, bias=True)
+    (bn7): BatchNorm1d(512, 0.009% Params, 512.0 Mac, 0.000% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dp2): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.5, inplace=False)
+    (linear3): Linear(771, 0.013% Params, 771.0 Mac, 0.000% MACs, in_features=256, out_features=3, bias=True)
+  )
+  (rot): PointCloudTransformer(
+    2.93 M, 51.143% Params, 2.17 GMac, 50.000% MACs,
+    (conv1): Conv1d(1.54 k, 0.027% Params, 1.57 MMac, 0.036% MACs, 24, 64, kernel_size=(1,), stride=(1,), bias=False)
+    (conv2): Conv1d(4.1 k, 0.071% Params, 4.19 MMac, 0.096% MACs, 64, 64, kernel_size=(1,), stride=(1,), bias=False)
+    (bn1): BatchNorm1d(128, 0.002% Params, 131.07 KMac, 0.003% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bn2): BatchNorm1d(128, 0.002% Params, 131.07 KMac, 0.003% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (gather_local_0): Local_op(
+      33.28 k, 0.580% Params, 545.26 MMac, 12.544% MACs,
+      (conv1): Conv1d(16.38 k, 0.286% Params, 268.44 MMac, 6.175% MACs, 128, 128, kernel_size=(1,), stride=(1,), bias=False)
+      (conv2): Conv1d(16.38 k, 0.286% Params, 268.44 MMac, 6.175% MACs, 128, 128, kernel_size=(1,), stride=(1,), bias=False)
+      (bn1): BatchNorm1d(256, 0.004% Params, 4.19 MMac, 0.096% MACs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn2): BatchNorm1d(256, 0.004% Params, 4.19 MMac, 0.096% MACs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (gather_local_1): Local_op(
+      132.1 k, 2.303% Params, 1.08 GMac, 24.894% MACs,
+      (conv1): Conv1d(65.54 k, 1.143% Params, 536.87 MMac, 12.351% MACs, 256, 256, kernel_size=(1,), stride=(1,), bias=False)
+      (conv2): Conv1d(65.54 k, 1.143% Params, 536.87 MMac, 12.351% MACs, 256, 256, kernel_size=(1,), stride=(1,), bias=False)
+      (bn1): BatchNorm1d(512, 0.009% Params, 4.19 MMac, 0.096% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn2): BatchNorm1d(512, 0.009% Params, 4.19 MMac, 0.096% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (pt_last): StackedAttention(
+      791.55 k, 13.800% Params, 203.03 MMac, 4.671% MACs,
+      (conv1): Conv1d(65.54 k, 1.143% Params, 16.78 MMac, 0.386% MACs, 256, 256, kernel_size=(1,), stride=(1,), bias=False)
+      (conv2): Conv1d(65.54 k, 1.143% Params, 16.78 MMac, 0.386% MACs, 256, 256, kernel_size=(1,), stride=(1,), bias=False)
+      (bn1): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn2): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (sa1): SA_Layer(
+        164.86 k, 2.874% Params, 42.27 MMac, 0.972% MACs,
+        (q_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (k_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (v_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (trans_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (after_norm): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act): ReLU(0, 0.000% Params, 65.54 KMac, 0.002% MACs, )
+        (softmax): Softmax(0, 0.000% Params, 0.0 Mac, 0.000% MACs, dim=-1)
+      )
+      (sa2): SA_Layer(
+        164.86 k, 2.874% Params, 42.27 MMac, 0.972% MACs,
+        (q_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (k_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (v_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (trans_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (after_norm): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act): ReLU(0, 0.000% Params, 65.54 KMac, 0.002% MACs, )
+        (softmax): Softmax(0, 0.000% Params, 0.0 Mac, 0.000% MACs, dim=-1)
+      )
+      (sa3): SA_Layer(
+        164.86 k, 2.874% Params, 42.27 MMac, 0.972% MACs,
+        (q_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (k_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (v_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (trans_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (after_norm): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act): ReLU(0, 0.000% Params, 65.54 KMac, 0.002% MACs, )
+        (softmax): Softmax(0, 0.000% Params, 0.0 Mac, 0.000% MACs, dim=-1)
+      )
+      (sa4): SA_Layer(
+        164.86 k, 2.874% Params, 42.27 MMac, 0.972% MACs,
+        (q_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (k_conv): Conv1d(16.38 k, 0.286% Params, 4.19 MMac, 0.096% MACs, 256, 64, kernel_size=(1,), stride=(1,), bias=False)
+        (v_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (trans_conv): Conv1d(65.79 k, 1.147% Params, 16.84 MMac, 0.387% MACs, 256, 256, kernel_size=(1,), stride=(1,))
+        (after_norm): BatchNorm1d(512, 0.009% Params, 131.07 KMac, 0.003% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act): ReLU(0, 0.000% Params, 65.54 KMac, 0.002% MACs, )
+        (softmax): Softmax(0, 0.000% Params, 0.0 Mac, 0.000% MACs, dim=-1)
+      )
+      (relu): ReLU(0, 0.000% Params, 131.07 KMac, 0.003% MACs, )
+    )
+    (conv_fuse): Sequential(
+      1.31 M, 22.887% Params, 336.33 MMac, 7.737% MACs,
+      (0): Conv1d(1.31 M, 22.851% Params, 335.54 MMac, 7.719% MACs, 1280, 1024, kernel_size=(1,), stride=(1,), bias=False)
+      (1): BatchNorm1d(2.05 k, 0.036% Params, 524.29 KMac, 0.012% MACs, 1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): LeakyReLU(0, 0.000% Params, 262.14 KMac, 0.006% MACs, negative_slope=0.2)
+    )
+    (linear1): Linear(524.29 k, 9.140% Params, 524.29 KMac, 0.012% MACs, in_features=1024, out_features=512, bias=False)
+    (bn6): BatchNorm1d(1.02 k, 0.018% Params, 1.02 KMac, 0.000% MACs, 512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dp1): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.5, inplace=False)
+    (linear2): Linear(131.33 k, 2.290% Params, 131.33 KMac, 0.003% MACs, in_features=512, out_features=256, bias=True)
+    (bn7): BatchNorm1d(512, 0.009% Params, 512.0 Mac, 0.000% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dp2): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.5, inplace=False)
+    (linear3): Linear(771, 0.013% Params, 771.0 Mac, 0.000% MACs, in_features=256, out_features=3, bias=True)
+  )
+  (train_acc_ad): Accuracy(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (train_acc_ads): Accuracy(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (val_acc_ad): Accuracy(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (val_acc_ads): Accuracy(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (test_acc_ad): Accuracy(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (test_acc_ads): Accuracy(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (test_acc_small_ad): Accuracy(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (test_acc_small_ads): Accuracy(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (val_acc_best): MaxMetric(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (val_acc_ad_best): MaxMetric(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (val_acc_ads_best): MaxMetric(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+)
+Computational complexity:       4.35 GMac
+Number of parameters:           5.74 M
