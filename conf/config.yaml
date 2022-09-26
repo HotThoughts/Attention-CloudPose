@@ -34,7 +34,7 @@ train:
   epochs: 70
   max_epochs: 75
   # Initial learning rate
-  lr: 0.001
+  lr: 0.0008
   # Which epochs to decay the learning rate
   lr_decay_steps: [80, 120, 160]
   lr_decay_rate: [0.1, 0.1, 0.1]
